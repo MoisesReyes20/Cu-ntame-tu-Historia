@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUENTAME TU HISTORIA</title>
+    
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+    <div class="contenedor-login">
+    
+        <div class="tarjeta-dividida">
+            
+            <div class="tarjeta-izquierda">
+                <span class="etiqueta-version">v1.0.0</span>
+                
+                <div class="contenido-izquierdo">
+                    <img src="img/logo.png" alt="Cuéntame tu historia" class="imagen-principal">
+                    
+                    <div class="mensaje-registro">
+                        <p>¿Aún no eres parte de la comunidad?</p>
+                        <a href="#" id="toggleRegister">Únete y cuenta tu relato</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarjeta-derecha">
+                
+                <div class="encabezado-formulario">
+                    <h2 id="formTitle">Iniciar Sesión</h2>
+                    <p>¡Bienvenido a <strong>Cuéntame tu historia</strong>! Ingresa al mundo de las leyendas colocando tu información. 👻</p>
+                </div>
+
+ <form id="loginForm">
+    
+<form id="loginForm">
+    <div id="camposRegistro" class="d-none">
+        <div class="grupo-entrada">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Nombre">
+        </div>
+
+        <div class="grupo-entrada">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" placeholder="Apellidos">
+        </div>
+
+        <div class="grupo-entrada">
+            <label for="fechaN">Fecha de Nacimiento</label>
+            <input type="date" id="fechaN">
+        </div>
+    </div>
+
+    <div class="grupo-entrada">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" placeholder="Correo" required>
+    </div>
+
+    <div class="grupo-entrada">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Contraseña" required>
+    </div>
+
+
+                    <button type="submit" id="submitBtn" class="boton-principal">Entrar en la oscuridad</button>
+                    
+<button type="button" id="btnGoogle" class="boton-google">
+    <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" style="width: 20px;">
+    Continuar con Google
+</button>
+                    <div class="pie-formulario">
+                        <a href="#">Recuperar contraseña</a>
+                    </div>
+                </form>
+                
+                <div id="authMessage" class="alerta d-none"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="auth.js"></script> 
+</body>
+</html>

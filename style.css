@@ -1,0 +1,561 @@
+/* ==========================================
+   1. VARIABLES DE COLOR (Paleta del Proyecto)
+   ========================================== */
+:root {
+    --fondo-oscuro: #0a0a0a;      /* Negro casi puro para el fondo de la página */
+    --fondo-tarjeta: #1a1a1a;     /* Gris muy oscuro para el cuadro principal */
+    --texto-principal: #e5e5e5;   /* Blanco grisáceo para leer cómodamente */
+    --texto-secundario: #9ca3af;  /* Gris claro para descripciones */
+    --color-acento: #8b0000;      /* Rojo sangre/oscuro para el toque paranormal */
+    --acento-hover: #5c0000;      /* Rojo más oscuro para cuando pasas el mouse */
+    --fondo-entradas: #2d2d2d;    /* Fondo de las cajas de texto */
+    --color-borde: #404040;       /* Líneas divisorias */
+}
+
+/* ==========================================
+   2. ESTILOS GENERALES DE LA PÁGINA
+   ========================================== */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--fondo-oscuro);
+    color: var(--texto-principal);
+}
+
+/* Centra todo el contenido en medio de la pantalla */
+.contenedor-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ==========================================
+   3. LA TARJETA PRINCIPAL (El cuadro dividido)
+   ========================================== */
+.tarjeta-dividida {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 600px;
+    background: var(--fondo-tarjeta);
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.8); /* Sombra dramática */
+    overflow: hidden; /* Evita que el contenido se salga de las esquinas redondas */
+}
+
+/* ==========================================
+   4. MITAD IZQUIERDA (Imagen)
+   ========================================== */
+.tarjeta-izquierda {
+    flex: 1; /* Ocupa la mitad del espacio */
+    background: linear-gradient(135deg, #111 0%, #000 100%);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Separa la etiqueta superior del contenido central */
+    border-right: 1px solid var(--color-borde);
+}
+
+.etiqueta-version {
+    background: var(--color-acento);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.contenido-izquierdo {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Da un ligero brillo rojo a la imagen para más misterio */
+.imagen-principal {
+    max-width: 80%;
+    filter: drop-shadow(0 0 20px rgba(139,0,0,0.3)); 
+    margin-bottom: 30px;
+}
+
+.mensaje-registro p {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.mensaje-registro a {
+    color: var(--color-acento);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ==========================================
+   5. MITAD DERECHA (Formulario)
+   ========================================== */
+.tarjeta-derecha {
+    flex: 1; /* Ocupa la otra mitad del espacio */
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.encabezado-formulario h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.encabezado-formulario p {
+    color: var(--texto-secundario);
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+/* Estilos de las cajas de texto (inputs) */
+.grupo-entrada {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-entrada label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.grupo-entrada input {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--fondo-entradas);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s; /* Animación suave al hacer clic */
+}
+
+/* Efecto cuando haces clic para escribir */
+.grupo-entrada input:focus {
+    border-color: var(--color-acento);
+    box-shadow: 0 0 0 2px rgba(139,0,0,0.3);
+}
+
+.opciones-formulario {
+    margin-bottom: 30px;
+}
+
+.contenedor-casilla {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* ==========================================
+   6. BOTONES
+   ========================================== */
+.boton-principal {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-acento);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 15px;
+}
+
+.boton-principal:hover {
+    background-color: var(--acento-hover);
+}
+
+.boton-google {
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Separación entre el logo y el texto */
+}
+
+.boton-google img {
+    width: 20px;
+}
+
+/* ==========================================
+   7. PIE DEL FORMULARIO Y RESPONSIVO
+   ========================================== */
+.pie-formulario {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pie-formulario a {
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Ajuste para teléfonos móviles (apila las mitades) */
+@media (max-width: 768px) {
+    .tarjeta-dividida {
+        flex-direction: column; /* Pone una mitad arriba de la otra */
+    }
+    .tarjeta-izquierda {
+        border-right: none;
+        border-bottom: 1px solid var(--color-borde);
+        padding: 30px;
+    }
+    .tarjeta-derecha {
+        padding: 30px;
+    }
+}
+/* Utilidad para ocultar elementos con JavaScript */
+.d-none {
+    display: none !important;
+}
+/* DISEÑO DEL DASHBOARD */
+.contenedor-app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.barra-lateral {
+    width: 250px;
+    background-color: #000000;
+    border-right: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.logo-mini {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.menu-navegacion {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    flex-grow: 1;
+}
+
+.menu-navegacion li a {
+    display: block;
+    padding: 12px;
+    color: var(--texto-secundario);
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.menu-navegacion li a:hover, .menu-navegacion li a.activo {
+    background-color: var(--color-acento);
+    color: white;
+}
+
+.contenido-principal {
+    flex-grow: 1;
+    padding: 40px;
+    background: radial-gradient(circle at top, #1a1a1a, #0a0a0a);
+}
+
+.boton-salir {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #8b0000;
+    color: #8b0000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.boton-salir:hover {
+    background: #8b0000;
+    color: white;
+}
+/* RESET PARA QUE NADA SE SALGA */
+* {
+    box-sizing: border-box;
+}
+
+/* EL CONTENEDOR PADRE */
+.contenedor-app {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--fondo-oscuro);
+}
+
+/* LA BARRA LATERAL (FIJA A LA IZQUIERDA) */
+.barra-lateral {
+    width: 260px;
+    background-color: #000;
+    border-right: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    flex-shrink: 0; /* No deja que se haga chiquita */
+    position: sticky; /* Se queda ahí mientras haces scroll */
+    top: 0;
+    height: 100vh;
+}
+
+/* EL ÁREA DE CONTENIDO (DONDE ESTÁ EL FORMULARIO) */
+.contenido-principal {
+    flex: 1; /* Ocupa todo el resto del ancho */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* CENTRA HORIZONTALMENTE */
+    justify-content: flex-start; /* Empieza desde arriba */
+    padding: 60px 20px;
+    overflow-y: auto;
+}
+
+/* EL FORMULARIO (POR FIN EN SU LUGAR) */
+#formNuevaHistoria {
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para que no se vea gigante */
+    background-color: var(--fondo-tarjeta);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-top: 20px;
+}
+
+/* Títulos del Dashboard */
+.encabezado-bienvenida {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+/* ==========================================
+   ESTILOS DE LA SECCIÓN PODCAST
+   ========================================== */
+.cabecera-podcast {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    max-width: 900px;
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
+
+.portada-podcast {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    background-color: #111; /* Fondo por si la imagen es transparente */
+}
+
+.info-podcast {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-podcast {
+    font-size: 2.5rem;
+    margin: 0;
+    color: white;
+}
+
+.autor-podcast {
+    font-size: 1.5rem;
+    color: #8a2be2; /* Color morado estilo podcast */
+    margin: 5px 0 15px 0;
+    font-weight: normal;
+}
+
+.meta-podcast {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-e {
+    background-color: #555;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+.descripcion-podcast {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.ver-mas {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Botones de la cabecera */
+.botones-podcast {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-reproducir {
+    background-color: #8a2be2; /* Morado */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-reproducir:hover { background-color: #6a1b9a; }
+
+.btn-secundario {
+    background-color: #2a2a2a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-secundario:hover { background-color: #404040; }
+
+.btn-icono {
+    padding: 10px 15px; /* Más redondo para el de 3 puntitos */
+}
+
+/* Lista de episodios estilo Spotify */
+.seccion-episodios {
+    max-width: 900px;
+}
+
+.titulo-seccion {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lista-episodios {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.episodio-item {
+    background-color: transparent;
+    border-bottom: 1px solid #333;
+    padding: 20px 0;
+    transition: 0.3s;
+}
+
+.episodio-item:hover {
+    background-color: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    padding: 20px 10px;
+}
+
+.episodio-fecha {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.episodio-titulo {
+    color: white;
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.episodio-resumen {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.episodio-controles {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-play-mini {
+    background-color: white;
+    color: black;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: 0.2s;
+}
+
+.btn-play-mini:hover { transform: scale(1.1); }
+
+.episodio-duracion {
+    color: #9ca3af;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* Ajuste responsivo para celulares */
+@media (max-width: 768px) {
+    .cabecera-podcast {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .botones-podcast {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
